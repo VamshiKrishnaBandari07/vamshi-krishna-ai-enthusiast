@@ -26,10 +26,10 @@ function resize() {
 }
 function draw() {
   ctx.clearRect(0, 0, width, height);
-  const radius = Math.min(width * 0.40, height * 0.36);
-  const cx = width * 0.51, cy = height * 0.48;
+  const radius = Math.min(width * 0.37, height * 0.32);
+  const cx = width * 0.50, cy = height * 0.47;
   const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius * 1.45);
-  glow.addColorStop(0, 'rgba(137,206,83,.09)'); glow.addColorStop(1, 'rgba(137,206,83,0)');
+  glow.addColorStop(0, 'rgba(94,55,174,.18)'); glow.addColorStop(1, 'rgba(94,55,174,0)');
   ctx.fillStyle = glow; ctx.fillRect(0, 0, width, height);
   const ry = angle + pointerX * .3, rx = -.18 + pointerY * .22;
   const projected = points.map(p => {
@@ -42,16 +42,16 @@ function draw() {
   });
   edges.forEach(([a, b]) => {
     const p = projected[a], q = projected[b];
-    const opacity = .08 + ((p.z + q.z + 2) / 4) * .39;
-    ctx.strokeStyle = `rgba(162,218,110,${opacity})`; ctx.lineWidth = .65;
+    const opacity = .10 + ((p.z + q.z + 2) / 4) * .56;
+    ctx.strokeStyle = `rgba(79,45,139,${opacity})`; ctx.lineWidth = .85;
     ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
   });
   projected.sort((a,b) => a.z - b.z).forEach(p => {
-    ctx.fillStyle = `rgba(194,246,139,${.22 + (p.z + 1) * .36})`;
+    ctx.fillStyle = `rgba(81,47,144,${.3 + (p.z + 1) * .32})`;
     ctx.beginPath(); ctx.arc(p.x, p.y, p.z > .4 ? 1.7 : 1, 0, Math.PI * 2); ctx.fill();
   });
   ctx.save(); ctx.translate(cx, cy); ctx.rotate(-.32);
-  ctx.strokeStyle = 'rgba(162,218,110,.18)'; ctx.lineWidth = .7;
+  ctx.strokeStyle = 'rgba(100,68,160,.30)'; ctx.lineWidth = .7;
   ctx.beginPath(); ctx.ellipse(0, 0, radius * 1.32, radius * .42, 0, 0, Math.PI * 2); ctx.stroke();
   ctx.restore();
 }

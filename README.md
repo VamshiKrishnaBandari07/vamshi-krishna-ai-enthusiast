@@ -1,6 +1,6 @@
 # Vamshi Krishna Bandari · Portfolio
 
-A responsive AI-inspired portfolio with an interactive 3D neural globe, built with HTML, CSS, and JavaScript. No dependency installation or build step is needed. Python 3 serves the website locally; Node.js is optional for syntax checking.
+A responsive editorial portfolio with warm ivory, violet, and lime styling, an interactive 3D neural globe, original CSS project illustrations, and expandable technical case studies. Built with HTML, CSS, and JavaScript. No dependency installation or build step is needed. Python 3 serves the website locally; Node.js is optional for syntax checking.
 
 ## Run
 
